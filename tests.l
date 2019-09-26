@@ -12,7 +12,7 @@
 # bn_digitcount
 (do X
    #(bn_zero A)
-   (let (N (rnd)  S (rand 100 150))
+   (let (N (rnd)  S (rand 100 190))
       (bn_read_uint32 N A)
       (test N (bn_format A))
       (test
