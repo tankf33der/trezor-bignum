@@ -35,8 +35,8 @@
          1
          '(Str (128 C . 128))
          128 )
-      (println Str)   
-      (format Str) ) )
+      #(println Str)   
+      (format (pack Str)) ) )
 (de bn_bitcount (A)
    (native
       "libtrz.so.0"
