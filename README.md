@@ -1,3 +1,3 @@
-Test bignum core code from trezor.
+Test bignum core code from Trezor by PicoLisp.
 
 Lets see.
