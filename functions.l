@@ -33,8 +33,8 @@
          0
          0
          0
-         '(Str (128 C . 128))
-         128 )
+         '(Str (256 C . 256))
+         256 )
       (format Str) ) )
 (de bn_bitcount (A)
    (native
