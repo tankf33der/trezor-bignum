@@ -66,3 +66,48 @@
       "bn_zero"
       NIL
       A ) )            
+(de bn_setbit (N B)
+   (native
+      "libtrz.so.0"
+      "bn_setbit"
+      NIL
+      N
+      B) )
+(de bn_clearbit (N B)
+   (native
+      "libtrz.so.0"
+      "bn_clearbit"
+      NIL
+      N
+      B ) )      
+(de bn_xor (A B C)
+   (native
+      "libtrz.so.0"
+      "bn_xor"
+      NIL
+      A
+      B
+      C ) )
+(de bn_mult_half (A B)
+   (native
+      "libtrz.so.0"
+      "bn_mult_half"
+      NIL
+      A
+      B ) )      
+(de bn_mult_k (A B C)
+   (native
+      "libtrz.so.0"
+      "bn_mult_k"
+      NIL
+      A
+      B
+      C ) )
+(de bn_mod (A B)
+   (native
+      "libtrz.so.0"
+      "bn_mod"
+      NIL
+      A
+      B ) )
+            
