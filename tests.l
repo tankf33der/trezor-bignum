@@ -1,3 +1,9 @@
+# IGNORED:
+# bn_mod
+# bn_mult*
+# bn_subi
+#
+
 `(== 64 64)
 (seed (in "/dev/urandom" (rd 8)))
 (load "functions.l")
@@ -12,7 +18,7 @@
 # bn_digitcount
 # bn_lshift
 # bn_rshift
-(do 3
+(do X
    (let (N (rnd)  S (rand 100 190))
       (bn_read_uint32 N A)
       (test N (bn_format A))
@@ -31,16 +37,47 @@
       (do S (bn_rshift A))
       (test (bn_format A) (>> S N1))
 
-      # bn_mod
-      (bn_read_uint32 123456789 C)
-      (println (bn_format A) (bn_format C))
-      (bn_mod A C)
-      (println (bn_format A) (bn_format C))
-    
-   )
+      # bn_add
+      (let (N (rnd)  S (rand 50 100)  Z (rnd))
+         (bn_read_uint32 N A)
+         (bn_setbit A S)
+         (setq N (| N (>> (- S) 1)))
+         #(test N (bn_format A))
+         (bn_addi A Z)
+         (inc 'N Z)
+         #(test (inc 'N Z) (bn_format A))
+         (bn_add A A)
+         (test (inc 'N N) (bn_format A)) )
 
-)
+      # bn_subtract
+      (let
+         (Na (rnd)
+            Nb Na
+            Sa (rand 50 100)
+            Sb (rand 150 200) )
+         (bn_read_uint32 Na A)
+         (bn_read_uint32 Nb B)
+         (bn_setbit A Sa)
+         (bn_setbit B Sb)
+         (bn_subtract B A C)
+         (test
+            (bn_format C)
+            (- 
+               (| Nb (>> (- Sb) 1))
+               (| Na (>> (- Sa) 1)) ) ) )
 
+      # bn_divmod*
+      (let (N (rnd)  S (rand 100 200))
+         (bn_read_uint32 N A)
+         (bn_setbit A S)
+         (bn_divmod58 A)
+         (test
+            (setq N (/ (| N (>> (- S) 1)) 58))
+            (bn_format A) )
+         (bn_divmod1000 A)
+         (test
+            (/ N 1000)
+            (bn_format A) ) ) ) )
 # bn_setbit
 # bn_clearbit
 (setq N1 12345)

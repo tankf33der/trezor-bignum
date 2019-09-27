@@ -110,4 +110,39 @@
       NIL
       A
       B ) )
-            
+(de bn_add (A B)
+   (native
+      "libtrz.so.0"
+      "bn_add"
+      NIL
+      A
+      B ) )
+(de bn_addi (A B)
+   (native
+      "libtrz.so.0"
+      "bn_addi"
+      NIL
+      A
+      B ) )
+(de bn_subtract (A B C)
+   (native
+      "libtrz.so.0"
+      "bn_subtract"
+      NIL
+      A
+      B
+      C ) )
+(de bn_divmod58 (A)
+   (native
+      "libtrz.so.0"
+      "bn_divmod58"
+      NIL
+      A
+      'I ) )
+(de bn_divmod1000 (A)
+   (native
+      "libtrz.so.0"
+      "bn_divmod1000"
+      NIL
+      A
+      'I ) )
