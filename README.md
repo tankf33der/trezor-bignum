@@ -8,3 +8,4 @@ Have fun!
 
 ***
 
+Tested. Passed on functions I took.
