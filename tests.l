@@ -7,7 +7,7 @@
 `(== 64 64)
 (seed (in "/dev/urandom" (rd 8)))
 (load "functions.l")
-(setq X 4096)
+(setq X 8192)
 (setq A (bn_malloc))
 (setq B (bn_malloc))
 (setq C (bn_malloc))
@@ -62,7 +62,7 @@
          (bn_subtract B A C)
          (test
             (bn_format C)
-            (- 
+            (-
                (| Nb (>> (- Sb) 1))
                (| Na (>> (- Sa) 1)) ) ) )
 
